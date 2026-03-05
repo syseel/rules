@@ -1,3 +1,17 @@
+#!name=Apps-Adblock-All
+#!desc=去开屏及常见内置广告：京东/淘宝/菜鸟/贴吧/高德/网易邮箱/虎牙/斗鱼/猫眼/闲鱼/盒马/天猫/飞猪/大众点评/途虎/慢慢买/拼多多/美团/米家/电信/支付宝/平安/知乎/大麦/贝壳/百度网盘/美的美居
+#!author=custom
+#!homepage=https://github.com
+#!icon=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon.png
+
+[Rule]
+# （模块通常只定义规则段用于方便分流，实际分流由主配置控制）
+# 如果你想让这些请求被本地处理（而不是直接走代理），在主配置中把对应域名设置为 DIRECT
+
+[URL Rewrite]
+# 如果需要直接 302 拦截/跳转（慎用）
+# 示例（一般不需要 URL Rewrite，主要用 Script/Body Rewrite）
+
 [Body Rewrite]
 # 使用 jq 删除响应里常见的广告字段（部分接口）
 # 菜鸟（示例）
