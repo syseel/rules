@@ -1,40 +1,25 @@
-#!name=Apps-Adblock-All
-#!desc=去开屏及常见内置广告：京东/淘宝/菜鸟/贴吧/高德/网易邮箱/虎牙/斗鱼/猫眼/闲鱼/盒马/天猫/飞猪/大众点评/途虎/慢慢买/拼多多/美团/米家/电信/支付宝/平安/知乎/大麦/贝壳/百度网盘/美的美居
+#!name=Adblock
+#!desc=去开屏及常见内置广告
 #!author=custom
 #!homepage=https://github.com
 #!icon=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon.png
 
-[Rule]
-# （模块通常只定义规则段用于方便分流，实际分流由主配置控制）
-# 如果你想让这些请求被本地处理（而不是直接走代理），在主配置中把对应域名设置为 DIRECT
-
-[URL Rewrite]
-# 如果需要直接 302 拦截/跳转（慎用）
-# 示例（一般不需要 URL Rewrite，主要用 Script/Body Rewrite）
-
 [Body Rewrite]
-# 使用 jq 删除响应里常见的广告字段（部分接口）
-# 菜鸟（示例）
+# 菜鸟
 http-response-jq ^https:\/\/(cn-acs\.m|e2e-mtop)\.cainiao\.com\/gw\/mtop 'del(.data.data.banner, .data.data.activity, .data.data.vip)'
-# 什么值得买（示例）
+# 什么值得买
 http-response-jq ^https?:\/\/api\.smzdm\.com\/v\d+\/.* 'del(.data.ad_list)'
-# 贴吧简化（示例）
+# 贴吧简化
 http-response-jq ^https?:\/\/c\.tieba\.baidu\.com\/c\/s\/v2\/page 'del(.data.ads)'
 
 [Script]
-# 通用“开屏/启动/启动页去广告”脚本（黑矩阵常用 startup.js，覆盖很多 APP 的开屏广告）
-# 下面用作示例：通过 script-path 指向社区脚本（请确保远程脚本可访问）
 京东_开屏去广告 = type=http-response,pattern=^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=start,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/startup/startup.js
 淘宝_开屏去广告 = type=http-response,pattern=^https?:\/\/trade-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.startup,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/startup/startup.js
 菜鸟_去广告 = type=http-response,pattern=^https?:\/\/(cn-acs\.m|netflow-mtop|nbcps-mtop)\.cainiao\.com\/,requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Cainiao.js
-# B 站、知乎、微博、抖音 等常见脚本（若你也使用这些 app，可一并启用）
 哔哩哔哩_去广告 = type=http-response,pattern=^https?:\/\/api\.bilibili\.com\/,requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bilibili_NoAd.js
 知乎_去广告 = type=http-response,pattern=^https?:\/\/api\.zhihu\.com\/,requires-body=1,script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20zhihu%20feed.js
-
-# 其它 app 的开屏去广告也可统一用 startup.js（覆盖率较高）
 通用_开屏去广告 = type=http-response,pattern=^https?:\/\/.*(startup|openad|launch|splash).*$,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/startup/startup.js
 
 [MITM]
-# 列出需要解密以便 Script/Body Rewrite 生效的域名（按你常用 App 精简）
 hostname = %APPEND% api.m.jd.com, trade-acs.m.taobao.com, api.taobao.com, cn-acs.m.cainiao.com, netflow-mtop.cainiao.com, nbcps-mtop.cainiao.com, api.smzdm.com, c.tieba.baidu.com, restapi.amap.com, apis.gaode.com, api.zhihu.com, api.yangkeduo.com, api.pinduoduo.com, api.meituan.com, media-api.meituan.com, api.dianping.com, api.huya.com, api.douyu.com, api.maoyan.com, api.xianyu.com, api.xiaomi.com, api-sz.mi.com, passport.baidu.com, pan.baidu.com
 h2 = true
