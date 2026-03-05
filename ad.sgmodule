@@ -1,15 +1,15 @@
-#!name=广告拦截&净化合集
+#!name=广告拦截
 #!desc=(支持约730款APP/小程序)针对部分APP和小程序广告进行拦截，某些APP要清除缓存或者重新安装拦截广告才会生效！规则明细可以查看本插件的注释
-#!author=奶思[https://github.com/fmz200]
+#!author=
 #!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/AdblockPlus.png
-#!category=奶思的模块
+#!category=
 #!homepage=https://github.com/fmz200/wool_scripts
 #!raw-url=https://github.com/fmz200/wool_scripts/raw/main/Loon/plugin/blockAds.plugin
 #!tg-channel=https://t.me/inaisi
-#!tag=去广告, fmz200, 奶思
+#!tag=去广告
 #!system=ios
 #!date=2026-01-29 10:00:00
-#!remark=下方的所有规则都标注了对应的hostname，可能存在错误或者遗漏，欢迎反馈。对于无法/可选MITM的hostname都特别做了“如开启可自行添加主机名”提示，如果提示后面没有标注主机名则包含所有主机名，否则只包含提示语后面的主机名。
+#!remark=
 #!arguments=12306_enable:true,555_enable:true,51xyk_enable:true,51job_enable:true,albb_enable:true,alyp_enable:true,aiqiyi_enable:true,blued_enable:true,bdduditu_enable:true,bddutpba_enable:true,per_filter_video_thread:"0",lawson_enable:true,displayUpList:"show",purifyComment:true,optimizeRequest:true,enhancedCompatibility:false,sponsorBlock:true,logLevel:"error",bilimanhua_enable:true,bohejmkh_enable:true,cdyytmqi_enable:false,cdnngogo_enable:true,cdxb_enable:true,davsdmpk_enable:true,dshxfg_enable:true,didiiuxk_enable:true,dyls_enable:true,ddmc_enable:true,flightradar24_enable:true,fwke_enable:true,ffbi_enable:true,hlzh_enable:true,hema_enable:true,hftx_enable:true,itzj_enable:true,jhsh_enable:true,jkds_enable:true,jkxi_enable:true,keep_enable:true,kkuz_enable:true,kxke_enable:true,kuwoybyt_enable:true,glgclmmg_enable:true,kuan_enable:true,lvtusvuftk_enable:true,mddjba_enable:true,mhgotv_enable:true,mafgwo_enable:true,mdmd_enable:true,meiyou_enable:true,pupuicui_enable:true,51job_enable:true,quda_enable:true,reddit_enable:true,rfrfuipk_enable:true,tab:true,useractivity:true,soul_enable:true,sudaxnyr_enable:true,smzdm_enable:true,tcbc_enable:true,tgxyxbwf_enable:true,vgtime_enable:true,lmjpxmvi_enable:true,MY:true,DT:false,FX:true,PRGG:true,PRRK:false,PRDRD:false,PRSCVPT:false,PRST:false,PRRR:true,HMPR:false,PRMST:true,PRCN:true,whyiyyybyt_enable:true,whyiyzdccidm_enable:true,wfnibovj_enable:true,xnmiuhig_enable:true,xntuisis_enable:true,xnmh_enable:true,xmyu_enable:true,xljnuiyivsuvgo_enable:true,xhs_enable:true,ximalaya_enable:true,youtube_enable:true,yzku_enable:true,yzxiapp_enable:true,vihu_enable:true,vhuhgsjn_enable:true,vrvr_enable:true,vsgogojihhks_enable:true,vsgorfbc_enable:true
 
 [Rule]
