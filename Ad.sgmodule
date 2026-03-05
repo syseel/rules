@@ -36,14 +36,5 @@ http-response-jq ^https?:\/\/c\.tieba\.baidu\.com\/c\/s\/v2\/page 'del(.data.ads
 
 [MITM]
 # 列出需要解密以便 Script/Body Rewrite 生效的域名（按你常用 App 精简）
-hostname = %APPEND% \
-api.m.jd.com, trade-acs.m.taobao.com, cn-acs.m.cainiao.com, netflow-mtop.cainiao.com, nbcps-mtop.cainiao.com, \
-api.smzdm.com, c.tieba.baidu.com, api.map.baidu.com, amap.com, restapi.amap.com, \
-api.youdao.com, api.bilibili.com, app.bilibili.com, mp.weixin.qq.com, api.weibo.cn, api.ixigua.com, \
-api.zhihu.com, api.bilibili.com, api.yangkeduo.com, api.m.jd.com, trade-acs.m.taobao.com, \
-api.pinduoduo.com, api.meituan.com, api.xiaomi.com, api-sz.mi.com, note.youdao.com, \
-api.58.com, api.dianping.com, openapi.tianmao.com, api.taobao.com, api.ixigua.com, \
-api.huya.com, api.douyu.com, media-api.meituan.com, api.maoyan.com, api.xianyu.com, \
-api.kuajing.com, api.moji.com, passport.baidu.com, pan.baidu.com, apis.gaode.com
-
+hostname = %APPEND% api.m.jd.com, trade-acs.m.taobao.com, api.taobao.com, cn-acs.m.cainiao.com, netflow-mtop.cainiao.com, nbcps-mtop.cainiao.com, api.smzdm.com, c.tieba.baidu.com, restapi.amap.com, apis.gaode.com, api.zhihu.com, api.yangkeduo.com, api.pinduoduo.com, api.meituan.com, media-api.meituan.com, api.dianping.com, api.huya.com, api.douyu.com, api.maoyan.com, api.xianyu.com, api.xiaomi.com, api-sz.mi.com, passport.baidu.com, pan.baidu.com
 h2 = true
