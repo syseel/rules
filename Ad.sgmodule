@@ -1,0 +1,35 @@
+[Body Rewrite]
+# 使用 jq 删除响应里常见的广告字段（部分接口）
+# 菜鸟（示例）
+http-response-jq ^https:\/\/(cn-acs\.m|e2e-mtop)\.cainiao\.com\/gw\/mtop 'del(.data.data.banner, .data.data.activity, .data.data.vip)'
+# 什么值得买（示例）
+http-response-jq ^https?:\/\/api\.smzdm\.com\/v\d+\/.* 'del(.data.ad_list)'
+# 贴吧简化（示例）
+http-response-jq ^https?:\/\/c\.tieba\.baidu\.com\/c\/s\/v2\/page 'del(.data.ads)'
+
+[Script]
+# 通用“开屏/启动/启动页去广告”脚本（黑矩阵常用 startup.js，覆盖很多 APP 的开屏广告）
+# 下面用作示例：通过 script-path 指向社区脚本（请确保远程脚本可访问）
+京东_开屏去广告 = type=http-response,pattern=^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=start,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/startup/startup.js
+淘宝_开屏去广告 = type=http-response,pattern=^https?:\/\/trade-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.startup,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/startup/startup.js
+菜鸟_去广告 = type=http-response,pattern=^https?:\/\/(cn-acs\.m|netflow-mtop|nbcps-mtop)\.cainiao\.com\/,requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Cainiao.js
+# B 站、知乎、微博、抖音 等常见脚本（若你也使用这些 app，可一并启用）
+哔哩哔哩_去广告 = type=http-response,pattern=^https?:\/\/api\.bilibili\.com\/,requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bilibili_NoAd.js
+知乎_去广告 = type=http-response,pattern=^https?:\/\/api\.zhihu\.com\/,requires-body=1,script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20zhihu%20feed.js
+
+# 其它 app 的开屏去广告也可统一用 startup.js（覆盖率较高）
+通用_开屏去广告 = type=http-response,pattern=^https?:\/\/.*(startup|openad|launch|splash).*$,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/startup/startup.js
+
+[MITM]
+# 列出需要解密以便 Script/Body Rewrite 生效的域名（按你常用 App 精简）
+hostname = %APPEND% \
+api.m.jd.com, trade-acs.m.taobao.com, cn-acs.m.cainiao.com, netflow-mtop.cainiao.com, nbcps-mtop.cainiao.com, \
+api.smzdm.com, c.tieba.baidu.com, api.map.baidu.com, amap.com, restapi.amap.com, \
+api.youdao.com, api.bilibili.com, app.bilibili.com, mp.weixin.qq.com, api.weibo.cn, api.ixigua.com, \
+api.zhihu.com, api.bilibili.com, api.yangkeduo.com, api.m.jd.com, trade-acs.m.taobao.com, \
+api.pinduoduo.com, api.meituan.com, api.xiaomi.com, api-sz.mi.com, note.youdao.com, \
+api.58.com, api.dianping.com, openapi.tianmao.com, api.taobao.com, api.ixigua.com, \
+api.huya.com, api.douyu.com, media-api.meituan.com, api.maoyan.com, api.xianyu.com, \
+api.kuajing.com, api.moji.com, passport.baidu.com, pan.baidu.com, apis.gaode.com
+
+h2 = true
