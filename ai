@@ -1,51 +1,63 @@
-DOMAIN,browser-intake-datadoghq.com
+# ============ OpenAI ============
+# --- 核心主站与 API ---
+DOMAIN-SUFFIX,openai.com
+DOMAIN-SUFFIX,chatgpt.com
+DOMAIN-SUFFIX,sora.com
+DOMAIN-SUFFIX,ai.com
+
+# --- 静态资源 / 文件托管 ---
+DOMAIN-SUFFIX,oaistatic.com
+DOMAIN-SUFFIX,oaiusercontent.com
+DOMAIN-SUFFIX,oaistatsig.com
+DOMAIN-SUFFIX,openaimerge.com
+DOMAIN-SUFFIX,openaicom.imgix.net
+DOMAIN-SUFFIX,openaiapi-site.azureedge.net
 DOMAIN,chat.openai.com.cdn.cloudflare.net
-DOMAIN,openai-api.arkoselabs.com
 DOMAIN,openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net
 DOMAIN,openaicomproductionae4b.blob.core.windows.net
 DOMAIN,production-openaicom-storage.azureedge.net
-DOMAIN,static.cloudflareinsights.com
-DOMAIN-SUFFIX,ai.com
-DOMAIN-SUFFIX,algolia.net
-DOMAIN-SUFFIX,api.statsig.com
-DOMAIN-SUFFIX,auth0.com
-DOMAIN-SUFFIX,chatgpt.com
+
+# --- 语音 / 实时通话 (LiveKit) ---
 DOMAIN-SUFFIX,chatgpt.livekit.cloud
-DOMAIN-SUFFIX,client-api.arkoselabs.com
-DOMAIN-SUFFIX,events.statsigapi.net
-DOMAIN-SUFFIX,featuregates.org
 DOMAIN-SUFFIX,host.livekit.cloud
-DOMAIN-SUFFIX,identrust.com
+DOMAIN-SUFFIX,turn.livekit.cloud
+
+# --- 认证 / 风控 / 人机验证 ---
+DOMAIN-SUFFIX,workos.com
+DOMAIN-SUFFIX,workoscdn.com
+DOMAIN,challenges.cloudflare.com
+DOMAIN,openai-api.arkoselabs.com
+DOMAIN,client-api.arkoselabs.com
+
+# --- 客服 / 支付 / 邮件 / 监控 ---
 DOMAIN-SUFFIX,intercom.io
 DOMAIN-SUFFIX,intercomcdn.com
-DOMAIN-SUFFIX,launchdarkly.com
-DOMAIN-SUFFIX,oaistatic.com
-DOMAIN-SUFFIX,oaiusercontent.com
-DOMAIN-SUFFIX,observeit.net
-DOMAIN-SUFFIX,openai.com
-DOMAIN-SUFFIX,openaiapi-site.azureedge.net
-DOMAIN-SUFFIX,openaicom.imgix.net
-DOMAIN-SUFFIX,segment.io
-DOMAIN-SUFFIX,sentry.io
-DOMAIN-SUFFIX,stripe.com
-DOMAIN-SUFFIX,turn.livekit.cloud
-DOMAIN-KEYWORD,openai
-DOMAIN,ai.google.dev
-DOMAIN,alkalimakersuite-pa.clients6.google.com
-DOMAIN,makersuite.google.com
-DOMAIN-SUFFIX,bard.google.com
-DOMAIN-SUFFIX,deepmind.com
-DOMAIN-SUFFIX,deepmind.google
-DOMAIN-SUFFIX,gemini.google.com
-DOMAIN-SUFFIX,generativeai.google
-DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com
-DOMAIN-SUFFIX,apis.google.com
-DOMAIN-KEYWORD,colab
-DOMAIN-KEYWORD,developerprofiles
-DOMAIN-KEYWORD,generativelanguage
-DOMAIN,cdn.usefathom.com
+DOMAIN,js.stripe.com
+DOMAIN-SUFFIX,ct.sendgrid.net
+DOMAIN,rum.browser-intake-datadoghq.com
+DOMAIN,o207216.ingest.sentry.io
+DOMAIN,o33249.ingest.sentry.io
+
+# ============ Anthropic / Claude ============
+# --- 核心域名 ---
 DOMAIN-SUFFIX,anthropic.com
 DOMAIN-SUFFIX,claude.ai
-IP-CIDR,24.199.123.28/32
-IP-CIDR,64.23.132.171/32
-IP-ASN,20473
+DOMAIN-SUFFIX,claude.com
+DOMAIN-SUFFIX,claude.app
+DOMAIN-SUFFIX,clau.de
+
+# --- 用户内容 / MCP ---
+DOMAIN-SUFFIX,claudeusercontent.com
+DOMAIN-SUFFIX,claudemcpcontent.com
+DOMAIN-SUFFIX,claudemcpclient.com
+
+# --- 专用 CDN / 认证 / 统计 ---
+DOMAIN,servd-anthropic-website.b-cdn.net
+DOMAIN,anthropic.com.cdn.cloudflare.net
+DOMAIN,anthropic.auth0.com
+DOMAIN-SUFFIX,usefathom.com
+
+# --- 官方入站 IP 段 ---
+IP-CIDR,160.79.104.0/23,no-resolve
+IP-CIDR,153.61.224.0/22,no-resolve
+IP-CIDR6,2607:6bc0::/48,no-resolve
